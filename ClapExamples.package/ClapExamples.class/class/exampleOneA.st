@@ -13,7 +13,7 @@ exampleOneA
 		addSubcommand: subcommand1.
 	context := ClapContext on: #('MyApp' 'input.txt' '--config' '/bar/abc' 'test' '--list').
 	match := command matchOn: context.
-	(match at:flag1) value.
-	(match at:pos1) value.
-	((match atName: 'test') at:flag2) value	.
+	(match at:flag1) value. "Returns input.txt"
+	(match at:pos1) value. "Returns Path / 'bar' / 'abc' "
+	((match atName: 'test') at:flag2) value	. "Returns true"
 	^ match

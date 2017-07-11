@@ -1,5 +1,5 @@
 as yet unclassified
-examplePositionals
+examplePositional
 "Example using Positionals"
 	<sampleInstance>
 	| pos1 command context match|
@@ -8,5 +8,5 @@ examplePositionals
 		addPositional: pos1. 
  context := ClapContext on: #('MyApp' 'input.txt').
 	match := command matchOn: context.
-	(match at:pos1) value.
+	(match at:pos1) value. "Returns input.txt"
 	^ match

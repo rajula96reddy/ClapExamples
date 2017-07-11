@@ -9,5 +9,5 @@ exampleSubCommand
 		addSubcommand: subcommand.
 	context := ClapContext on: #('MyApp' 'test' '--list').
 	match := command matchOn: context.
-	((match atName: 'test') at:flag) value	.
+	((match atName: 'test') at:flag) value. "Returns true"
 	^ match
