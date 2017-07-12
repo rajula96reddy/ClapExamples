@@ -1,7 +1,7 @@
 Features and Bugs
 
 Features:
-Add description to commands like this  ‘args_from_usage’ type   
+1. Add description to commands like this  ‘args_from_usage’ type   
                 new("MyApp")
                         .version("1.0")
                         .author("Kevin K. <kbknapp@gmail.com>")
@@ -9,27 +9,27 @@ Add description to commands like this  ‘args_from_usage’ type
                         .args_from_usage("-c, --config=[FILE] 'Sets a custom config file'
                                          <output> 'Sets an optional output file'
                                          -d... 'Turn debugging information on'")
-‘d...’ multiple occurances of a flag
-Specifying the index of the positional
-Specifying if an argument is optional or not
+2. ‘d...’ multiple occurances of a flag
+3. Specifying the index of the positional
+4. Specifying if an argument is optional or not
 
 Bugs
-When I don`t use compulsory args and try this
-<code>
-| pos1 command context match|
-    pos1 := (ClapPositional withName: 'inputFile').
-    command := (ClapCommand withName: 'MyApp') addPositional: pos1. 
-    context := ClapContext on: #('MyApp' 'input.txt').
-    match := command matchOn: context.
-    (match at:pos1) value. "Returns input.txt"
-</code>
-But when I use compulsory args and try 
-<code>
-| pos1 command context match|
-    pos1 := (ClapPositional withName: 'inputFile').
-    command := (ClapCommand withName: 'MyApp') addCompulsory: (pos1) asCompulsory.
-     context := ClapContext on: #('MyApp' 'input.txt').
-    match := command matchOn: context.
-    (match at:pos1) value. "Returns inputFile"
-</code>
-Shouldn`t they both return the same value. The second one is returning the positional name rather than the value. Am I doing it correct?
+1. When I don`t use compulsory args and try this
+  <code>
+  | pos1 command context match|
+      pos1 := (ClapPositional withName: 'inputFile').
+      command := (ClapCommand withName: 'MyApp') addPositional: pos1. 
+      context := ClapContext on: #('MyApp' 'input.txt').
+      match := command matchOn: context.
+      (match at:pos1) value. "Returns input.txt"
+  </code>
+  But when I use compulsory args and try 
+  <code>
+  | pos1 command context match|
+      pos1 := (ClapPositional withName: 'inputFile').
+      command := (ClapCommand withName: 'MyApp') addCompulsory: (pos1) asCompulsory.
+       context := ClapContext on: #('MyApp' 'input.txt').
+      match := command matchOn: context.
+      (match at:pos1) value. "Returns inputFile"
+  </code>
+  Shouldn`t they both return the same value. The second one is returning the positional name rather than the value. Am I doing it  correct?
