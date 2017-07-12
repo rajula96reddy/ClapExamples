@@ -2,8 +2,8 @@ as yet unclassified
 exampleOneA
 "Example using Long name Flags"
 	<sampleInstance>
-	| flag1  pos1 subcommand1 flag2 command context match|
-		flag1 := (ClapFlag withName: 'config') addPositional: (ClapPositional withName: 'FILE'); meaning: [ :flag | Path from: (flag atName: 'FILE') value ].
+	| flag1  pos1 subcommand1 flag2 command context match |
+	flag1 := (ClapFlag withName: 'config') addPositional: (ClapPositional withName: 'FILE'); meaning: [ :flag | Path from: (flag atName: 'FILE') value ].
 	flag2:= (ClapFlag withName: 'list') meaning: [ :flag | flag isMismatch not]. 
 	pos1 := (ClapPositional withName: 'inputFile').
 	subcommand1 := (ClapCommand withName: 'test') addFlag: flag2. 
