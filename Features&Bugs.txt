@@ -15,21 +15,21 @@ Specifying if an argument is optional or not
 
 Bugs
 When I don`t use compulsory args and try this
+<code>
 | pos1 command context match|
     pos1 := (ClapPositional withName: 'inputFile').
     command := (ClapCommand withName: 'MyApp') addPositional: pos1. 
     context := ClapContext on: #('MyApp' 'input.txt').
     match := command matchOn: context.
     (match at:pos1) value. "Returns input.txt"
-
+</code>
 But when I use compulsory args and try 
-
-
+<code>
 | pos1 command context match|
     pos1 := (ClapPositional withName: 'inputFile').
     command := (ClapCommand withName: 'MyApp') addCompulsory: (pos1) asCompulsory.
      context := ClapContext on: #('MyApp' 'input.txt').
     match := command matchOn: context.
     (match at:pos1) value. "Returns inputFile"
-
+</code>
 Shouldn`t they both return the same value. The second one is returning the positional name rather than the value. Am I doing it correct?
